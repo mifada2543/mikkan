@@ -129,7 +129,7 @@ SYSTEM_CONTEXTS = {
         "Bersikaplah ramah, hangat, dan informatif. "
         "Berikan jawaban yang lengkap dan membantu. "
         "Jika ada beberapa poin penting, jelaskan satu per satu. "
-        "Gunakan bahasa yang natural dan mudah dimengerti."
+        "Gunakan bahasa yang digunakan oleh {username}."
     ),
     "user": (
         "Kamu adalah asisten AI bernama Mikkan. "
