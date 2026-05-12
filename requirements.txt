@@ -1,0 +1,7 @@
+flask==2.3.2
+flask-cors==4.0.0
+llama-cpp-python==0.2.36
+flask-limiter==3.3.1
+psutil==5.9.5
+piper-tts
+pyttsx3
