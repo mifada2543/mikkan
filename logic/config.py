@@ -7,7 +7,7 @@ import os
 # ===== PATH CONFIGURATION =====
 BASE_DIR = os.path.dirname(__file__)
 ASSETS_DIR = os.path.join(BASE_DIR, "../assets")
-LLM_DIR = os.path.join(ASSETS_DIR, "llm")
+LLM_DIR = "/media/muhammaddaffa/KB/llm"
 KOKORO_DIR = os.path.join(ASSETS_DIR, "kokoro")
 
 # ===== CORS CONFIGURATION =====
