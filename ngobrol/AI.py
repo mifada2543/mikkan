@@ -61,6 +61,37 @@ def print_error(text):
     print(f"{COLOR_ERR}[ERROR]{RESET} {text}")
 
 
+def trim_messages(history, max_messages):
+    """
+    Keep the system prompt plus a valid alternating user/assistant history.
+
+    The chat template expects the non-system messages to alternate starting with
+    a user message. If we slice the tail blindly, we can end up with an
+    assistant message first, which triggers a validation error.
+    """
+
+    if not history:
+        return history
+
+    system_message = history[:1]
+    dialogue = history[1:]
+
+    if len(dialogue) > max_messages:
+        dialogue = dialogue[-max_messages:]
+
+    # Drop any leading assistant message so the sequence starts with user.
+    while dialogue and dialogue[0].get("role") != "user":
+        dialogue.pop(0)
+
+    # Remove any accidental consecutive duplicates to keep the sequence valid.
+    cleaned = []
+    for message in dialogue:
+        if not cleaned or cleaned[-1].get("role") != message.get("role"):
+            cleaned.append(message)
+
+    return system_message + cleaned
+
+
 # =========================================================
 # MULTILINE INPUT
 # =========================================================
@@ -303,12 +334,7 @@ while True:
         # HISTORY LIMIT
         # =============================================
 
-        if len(messages) > MAX_HISTORY + 1:
-
-            messages = (
-                [messages[0]] +
-                messages[-MAX_HISTORY:]
-            )
+        messages = trim_messages(messages, MAX_HISTORY)
 
         # =============================================
         # GENERATION
