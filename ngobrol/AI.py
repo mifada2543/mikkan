@@ -15,7 +15,7 @@ from llama_cpp import Llama
 # CONFIG
 # =========================================================
 
-MODEL_DIR = "/media/muhammaddaffa/KB/llm"
+MODEL_DIR = "/media/muhammaddaffa/MEeL/AI/llm"
 
 N_CTX = 16 * 1024
 N_THREADS = 8
