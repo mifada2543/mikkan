@@ -1003,3 +1003,4 @@ For issues:
 **Built with ❤️ for Indonesian AI enthusiasts**  
 **Powered by Gemma LLM + PIXI.js Live2D**  
 **Optimized for Intel Core i3-1220P CPU**
+**Mikkan members**
